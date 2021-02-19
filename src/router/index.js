@@ -17,6 +17,29 @@ const routes = [
         component: () => import(/* webpackChunkName: "index" */ '../views/home/index.vue')
       },
       {
+        path: '/companyFile',
+        component: Frame,
+        name: 'companyFile',
+        // redirect: '/companyFile/companyList',
+        children: [
+          {
+            path: '/companyFile/companyList',
+            name: 'companyList',
+            component: () => import('../views/companyFile/companyList.vue')
+          },
+          {
+            path: '/companyFile/newCompany',
+            name: 'newCompany',
+            component: () => import('../views/companyFile/newCompany.vue')
+          },
+          {
+            path: '/companyFile/newCompanyDetail',
+            name: 'newCompanyDetail',
+            component: () => import('../views/companyFile/newCompanyDetail.vue')
+          }
+        ]
+      },
+      {
         path: '/pollution',
         component: Frame,
         name: 'pollution',
